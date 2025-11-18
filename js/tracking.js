@@ -178,7 +178,16 @@ var app = new Vue({
       const str = `${waktu.getFullYear()}-${waktu.getMonth()}-${waktu.getDate()}`;
       this.dataDOBaru.tanggalKirim = str;
       this.tracking[this.buatNomerDo()] = this.dataDOBaru;
-      console.log(this.tracking);
+      this.tampilMenuTambahDO = false;
+      this.dataDOBaru.nim = "";
+      this.dataDOBaru.nama = "";
+      this.dataDOBaru.status = "";
+      this.dataDOBaru.ekspedisi = "";
+      this.dataDOBaru.tanggalKirim = "";
+      this.dataDOBaru.paket = "";
+      this.dataDOBaru.total = 0;
+      this.dataDOBaru.perjalanan = [];
+      alert("Delivery Order Sukses")
     },
     batalTambahDO() {
       this.tampilMenuTambahDO = false;
