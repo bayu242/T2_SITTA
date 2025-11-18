@@ -179,26 +179,10 @@ var app = new Vue({
       this.dataDOBaru.tanggalKirim = str;
       this.tracking[this.buatNomerDo()] = this.dataDOBaru;
       this.tampilMenuTambahDO = false;
-      this.dataDOBaru.nim = "";
-      this.dataDOBaru.nama = "";
-      this.dataDOBaru.status = "";
-      this.dataDOBaru.ekspedisi = "";
-      this.dataDOBaru.tanggalKirim = "";
-      this.dataDOBaru.paket = "";
-      this.dataDOBaru.total = 0;
-      this.dataDOBaru.perjalanan = [];
-      alert("Delivery Order Sukses")
+      alert("Delivery Order Sukses");
     },
     batalTambahDO() {
       this.tampilMenuTambahDO = false;
-      this.dataDOBaru.nim = "";
-      this.dataDOBaru.nama = "";
-      this.dataDOBaru.status = "";
-      this.dataDOBaru.ekspedisi = "";
-      this.dataDOBaru.tanggalKirim = "";
-      this.dataDOBaru.paket = "";
-      this.dataDOBaru.total = 0;
-      this.dataDOBaru.perjalanan = [];
     },
   },
   watch: {
