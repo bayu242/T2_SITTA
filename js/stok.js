@@ -267,6 +267,8 @@ var app = new Vue({
 
       if (this.pesanError == true) {
         this.stok.push(data);
+        this.tambahBahanAjar = false;
+        alert("Bahan ajar sukses ditambahkan");
       } else {
         alert("Periksa Kembali");
       }
