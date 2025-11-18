@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stok Bahan Ajar</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="black"></div>
+      <div>
+        <h1>Stok Bahan Ajar</h1>
+        <a href="/index.html"><img src="static/home.svg" alt="" /></a>
+      </div>
+      <div class="fitur">
+        <button @click="editStok">Edit Stok Ajar</button>
+        <button @click="tampilkanFormTambahBahanAjar()">
+          Tambah Bahan Ajar
+        </button>
+      </div>
+      <div class="tambah-bahan-ajar" v-if="tambahBahanAjar">
+        <h2>Tambah Bahan Ajar</h2>
+        <div class="pesanError" v-if="pesanError && pesanError != true">
+          {{pesanError}}
+        </div>
+        <div class="data-input">
+          <div>Judul</div>
+          <input v-model="bahanAjarBaru.judul" type="text" />
+        </div>
+        <div class="data-input">
+          <div>kode</div>
+          <input v-model="bahanAjarBaru.kode" type="text" />
+        </div>
+        <div class="data-input">
+          <div>Kategori</div>
+          <select v-model="bahanAjarBaru.kategori">
+            <option value="">Pilih Kategori</option>
+            <option value="MK Wajib">MK Wajib</option>
+            <option value="MK Pilihan">MK Pilihan</option>
+            <option value="Praktikum">Praktikum</option>
+            <option value="Problem-Based">Problem-Based</option>
+          </select>
+        </div>
+        <div class="data-input">
+          <div>UT-Daerah</div>
+          <select v-model="bahanAjarBaru.upbjj">
+            <option value="">Pilih UT-Daerah</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Makassar">Makassar</option>
+            <option value="Padang">Padang</option>
+            <option value="Denpasar">Denpasar</option>
+          </select>
+        </div>
+        <div class="data-input">
+          <div>Lokasi RAK</div>
+          <input v-model="bahanAjarBaru.lokasiRak" type="text" />
+        </div>
+        <div class="data-input">
+          <div>Harga</div>
+          <input v-model="bahanAjarBaru.harga" type="number" />
+        </div>
+        <div class="data-input">
+          <div>Jumlah Stok</div>
+          <input v-model="bahanAjarBaru.qty" type="number" />
+        </div>
+        <div class="data-input">
+          <div>Jumlah Safety Stok</div>
+          <input v-model="bahanAjarBaru.safety" type="number" />
+        </div>
+        <div class="data-input">
+          <div>catatanHTML</div>
+          <input v-model="bahanAjarBaru.catatanHTML" type="text" />
+        </div>
+        <div>
+          <button @click="simpanBahanAjarBaru()">Simpan</button>
+          <button @click="batalTambahBahanAjar()">Batal</button>
+        </div>
+      </div>
+
+      <!-- fitur edit bahan ajar -->
+      <div class="fitur-edit-bahan-ajar" v-if="edit_bahan_ajar">
+        <div>
+          <h2>Edit Stok Ajar</h2>
+          <div>
+            <span>Pilih Bahan Ajar</span>
+            <select
+              v-model="index_bahan_ajar"
+              v-html="daftarEditBahanAjar"
+            ></select>
+          </div>
+          <div>
+            <span>Stok :</span>
+            <input type="number" v-model="data_stok" />
+          </div>
+          <button @click="simpanEditStok">Simpan</button>
+          <button @click="batalEditStok">Batal</button>
+        </div>
+      </div>
+
+      <!--  -->
+      <div class="fitur-filter-urut-bahan-ajar">
+        <h2>Filter dan Urutkan Bahan Ajar</h2>
+        <div class="filter">
+          <span>Filter :</span>
+          <select v-model="filterUpbjj">
+            <option value="">Pilih UT-Daerah</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Makassar">Makassar</option>
+            <option value="Padang">Padang</option>
+            <option value="Denpasar">Denpasar</option>
+          </select>
+          <select v-model="filterKategori" v-if="filterUpbjj">
+            <option value="">Pilih Kategori</option>
+            <option value="MK Wajib">MK Wajib</option>
+            <option value="MK Pilihan">MK Pilihan</option>
+            <option value="Praktikum">Praktikum</option>
+            <option value="Problem-Based">Problem-Based</option>
+          </select>
+          <span>Stok : </span>
+          <input v-model="filterStok" type="checkbox" />
+          <button @click="resetFilter">Reset Filter</button>
+        </div>
+        <div class="urut">
+          <span>Urutkan Berdasarkan : </span>
+          <select v-model="jenisPengurutan">
+            <option value="">Tidak Diurutkan</option>
+            <option value="judul">Judul</option>
+            <option value="qty">Stok</option>
+            <option value="harga">Harga</option>
+          </select>
+          <span v-if="jenisPengurutan">Model Pengurutan : </span>
+          <select v-model="modePengurutan" v-if="jenisPengurutan">
+            <option value="menaik">Naik</option>
+            <option value="menurun">Turun</option>
+          </select>
+        </div>
+      </div>
+      <div class="list-bahan-ajar" v-html="filterSortDataStok"></div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="/js/stok.js"></script>
+  </body>
+</html>

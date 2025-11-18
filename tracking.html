@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking Bahan Ajar</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h1>Tracking Bahan Ajar</h1>
+        <a href="/index.html"><img src="static/home.svg" alt="" /></a>
+      </div>
+
+      <div class="pesanError" v-if="tampilPesanError">{{pesanError}}</div>
+
+      <div class="tracking-bahan-ajar">
+        <div>Tracking</div>
+        <input v-model="nomerDO" type="text" placeholder="Input nomer DO" />
+        <button @click="cariDataTracking()">Cari</button>
+        <div>Delivery Order</div>
+        <button @click="tampilTambaDO()">Buat</button>
+      </div>
+      <div class="tambahDO" v-if="tampilMenuTambahDO">
+        <div>
+          <div>NIM</div>
+          <input type="text" v-model="dataDOBaru.nim" />
+        </div>
+        <div>
+          <div>Nama</div>
+          <input type="text" v-model="dataDOBaru.nama" />
+        </div>
+        <div>
+          <div>Ekspedisi</div>
+          <select v-model="dataDOBaru.ekspedisi">
+            <option value="">Pilih ekspedisi</option>
+            <option :value="pengirimanList[0].kode">
+              {{pengirimanList[0].nama}}
+            </option>
+            <option :value="pengirimanList[1].kode">
+              {{pengirimanList[1].nama}}
+            </option>
+          </select>
+        </div>
+        <div>
+          <div>Paket Bahan Ajar</div>
+          <select v-model="kodePaket">
+            <option value="">Pilih Paket</option>
+            <option :value="paket[0].kode">{{paket[0].kode}}</option>
+            <option :value="paket[1].kode">{{paket[1].kode}}</option>
+          </select>
+        </div>
+        <div class="dataPaket">
+          <div v-if="dataPaket.nama">
+            <span>Nama Paket</span>
+            <span>{{dataPaket.nama}}</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>No</td>
+                <td>Kode</td>
+                <td>Judul</td>
+              </tr>
+            </thead>
+            <tbody v-html="daftarIsiPaket"></tbody>
+          </table>
+        </div>
+        <div v-if="dataPaket.harga">
+          <div>Total Harga</div>
+          <div>{{dataPaket.harga}}</div>
+        </div>
+        <div class="button-tambahDO">
+          <button @click="tambahDO()">Kirim</button>
+          <button @click="batalTambahDO()">Batal</button>
+        </div>
+      </div>
+      <div class="data-tracking-bahan-ajar" v-if="tampilDataTracking">
+        <div class="detailPaket">
+          <div>
+            <span>No Do</span>
+            <span>{{dataTracking.nomerDO}}</span>
+          </div>
+          <div>
+            <span>NIM</span>
+            <span>{{dataTracking.nim}}</span>
+          </div>
+          <div>
+            <span>Nama</span>
+            <span>{{dataTracking.nama}}</span>
+          </div>
+          <div>
+            <span>Status</span>
+            <span>{{dataTracking.status}}</span>
+          </div>
+          <div>
+            <span>Ekspedisi</span>
+            <span>{{dataTracking.ekspedisi}}</span>
+          </div>
+          <div>
+            <span>Tanggal Kirim</span>
+            <span>{{dataTracking.tanggalKirim}}</span>
+          </div>
+          <div>
+            <span>Paket</span>
+            <span>{{dataTracking.paket}}</span>
+          </div>
+          <div>
+            <span>Total</span>
+            <span>{{formatRupiah(dataTracking.total)}}</span>
+          </div>
+        </div>
+        <div class="detailPerjalanan" v-html="daftarPerjalananPaket"></div>
+      </div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="/js/tracking.js"></script>
+  </body>
+</html>
