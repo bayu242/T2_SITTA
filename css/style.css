@@ -1,4 +1,3 @@
-/* --- TEMA DASAR DAN CONTAINER --- */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f7f9;
@@ -109,7 +108,6 @@ h1 {
   font-size: 1.1em;
 }
 
-/* --- CATATAN --- */
 .catatan {
   border-top: 1px dashed #ced4da;
   padding-top: 10px;
@@ -122,7 +120,6 @@ h1 {
   color: #333;
 }
 
-/* --- MENU FITUR UTAMA --- */
 .fitur {
   display: flex;
   gap: 10px;
@@ -144,7 +141,6 @@ h1 {
   background-color: #0056b3;
 }
 
-/* --- BLOK TAMBAH BAHAN AJAR --- */
 .tambah-bahan-ajar {
   max-width: 600px;
   padding: 25px;
@@ -209,7 +205,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* --- BLOK FITUR EDIT BAHAN AJAR --- */
 .fitur-edit-bahan-ajar {
   background-color: #fff3cd;
   border: 1px solid #ffeeba;
@@ -220,7 +215,7 @@ h1 {
 }
 
 .fitur-edit-bahan-ajar h2 {
-  color: #856404; /* Warna teks kuning gelap */
+  color: #856404;
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -265,7 +260,6 @@ h1 {
   color: white;
 }
 
-/* --- BLOK FILTER DAN URUTKAN BAHAN AJAR --- */
 .fitur-filter-urut-bahan-ajar {
   background-color: #e9f0f9;
   border: 1px solid #cce5ff;
@@ -321,34 +315,28 @@ h1 {
   cursor: pointer;
 }
 
-/* Tracking Style */
-/* --- CONTAINER TRACKING BAHAN AJAR --- */
 .tracking-bahan-ajar {
-  /* Menggunakan Flexbox untuk menata elemen secara horizontal */
   display: flex;
-  align-items: center; /* Memusatkan item secara vertikal */
-  gap: 15px; /* Jarak antara elemen */
+  align-items: center;
+  gap: 15px;
 
   padding: 15px 20px;
   margin: 20px auto;
-  max-width: 600px; /* Batasi lebar untuk tampilan yang rapi */
+  max-width: 600px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* --- JUDUL / LABEL --- */
 .tracking-bahan-ajar > div:first-child {
   font-weight: bold;
   color: #343a40;
-  white-space: nowrap; /* Memastikan teks tidak pindah baris */
+  white-space: nowrap;
 }
 
-/* --- INPUT TEXT --- */
 .tracking-bahan-ajar input[type="text"] {
-  flex-grow: 1; /* Membuat input mengisi ruang yang tersedia */
-  padding: 10px 12px;
+  flex-grow: 1;
   border: 1px solid #ced4da;
   border-radius: 5px;
   font-size: 1em;
@@ -360,12 +348,11 @@ h1 {
   outline: none;
 }
 
-/* --- TOMBOL CARI --- */
 .tracking-bahan-ajar button {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #28a745; /* Warna hijau untuk aksi positif */
+  background-color: #28a745;
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -376,7 +363,6 @@ h1 {
   background-color: #1e7e34;
 }
 
-/* --- CONTAINER UTAMA --- */
 .data-tracking-bahan-ajar {
   max-width: 800px;
   margin: 20px auto;
@@ -387,57 +373,50 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* --- DETAIL PAKET (Informasi Dasar) --- */
 .detailPaket {
-  /* Menggunakan Grid untuk menata detail dalam dua kolom */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px 30px; /* Jarak antar baris dan kolom */
+  gap: 15px 30px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  border-bottom: 2px solid #007bff; /* Garis pemisah yang menonjol */
+  border-bottom: 2px solid #007bff;
 }
 
 .detailPaket > div {
   display: flex;
-  justify-content: space-between; /* Memisahkan label dan nilai */
+  justify-content: space-between;
   align-items: center;
   padding: 5px 0;
   border-bottom: 1px dashed #eee;
 }
 
 .detailPaket > div > span:first-child {
-  /* Styling untuk Label (No Do, NIM, Nama, dll.) */
   font-weight: bold;
   color: #555;
-  white-space: nowrap; /* Mencegah label pindah baris */
+  white-space: nowrap;
   margin-right: 15px;
 }
 
 .detailPaket > div > span:last-child {
-  /* Styling untuk Nilai */
   font-weight: 600;
   color: #333;
   text-align: right;
 }
 
-/* Menguatkan styling untuk status */
 .detailPaket > div:nth-child(4) > span:last-child {
-  color: #28a745; /* Contoh warna hijau untuk status "Dalam Perjalanan" */
+  color: #28a745;
   font-weight: bold;
 }
 
-/* --- DETAIL PERJALANAN (Timeline/Log) --- */
 .detailPerjalanan {
   padding: 10px 0;
   position: relative;
-  /* Menggunakan Grid untuk menata Waktu dan Keterangan dalam dua kolom */
+
   display: grid;
-  grid-template-columns: 150px 1fr; /* Kolom Waktu tetap (150px), Keterangan mengisi sisa ruang */
+  grid-template-columns: 150px 1fr;
   gap: 10px 20px;
 }
 
-/* Styling untuk Waktu (Kolom Ganjil/Ganjil pada struktur tag) */
 .detailPerjalanan > div:nth-child(odd) {
   font-weight: 600;
   color: #007bff;
@@ -446,18 +425,16 @@ h1 {
   position: relative;
 }
 
-/* Styling untuk Keterangan (Kolom Genap/Genap pada struktur tag) */
 .detailPerjalanan > div:nth-child(even) {
   color: #333;
-  border-left: 2px solid #ced4da; /* Garis vertikal timeline */
+  border-left: 2px solid #ced4da;
   padding-left: 15px;
 }
 
-/* Menambahkan titik pada timeline (pseudo-element) */
 .detailPerjalanan > div:nth-child(odd)::after {
   content: "";
   position: absolute;
-  right: -10px; /* Posisikan di garis tengah antara Waktu dan Keterangan */
+  right: -10px;
   top: 50%;
   transform: translateY(-50%);
   width: 10px;
@@ -469,7 +446,6 @@ h1 {
   z-index: 10;
 }
 
-/* --- CONTAINER UTAMA TAMBAH DO --- */
 .tambahDO {
   max-width: 700px;
   margin: 30px auto;
@@ -480,36 +456,29 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* --- TATA LETAK INPUT DATA --- */
-/* Menggunakan Grid untuk menata input di dalam .tambahDO menjadi dua kolom utama
-   (NIM, Nama, Ekspedisi, Paket) */
 .tambahDO {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px 30px; /* Jarak antar baris dan kolom */
+  gap: 20px 30px;
 }
 
-/* Memastikan div dataPaket mengambil seluruh lebar (span 2 kolom) */
 .tambahDO .dataPaket {
   grid-column: 1 / span 2;
   margin-top: 10px;
 }
 
-/* Styling untuk setiap blok input (label + field) */
 .tambahDO > div {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-/* Styling untuk Label */
 .tambahDO > div > div:first-child {
   font-weight: bold;
   color: #555;
   margin-bottom: 5px;
 }
 
-/* Styling untuk Input dan Select */
 .tambahDO input[type="text"],
 .tambahDO select {
   width: 100%;
@@ -527,14 +496,13 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* --- TABEL DATA PAKET --- */
 .dataPaket table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  overflow: hidden; /* Penting untuk border-radius pada tabel */
+  overflow: hidden;
 }
 
 .dataPaket th,
@@ -572,7 +540,7 @@ h1 {
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  background-color: #28a745; /* Warna hijau untuk aksi positif */
+  background-color: #28a745;
   color: white;
   font-weight: 600;
   cursor: pointer;
